@@ -200,7 +200,7 @@ variable "volumes_from" {
     readOnly        = bool
   }))
   description = "A list of VolumesFrom maps which contain \"sourceContainer\" (name of the container that has the volumes to mount) and \"readOnly\" (whether the container can write to the volume)"
-  default     = null
+  default     = []
 }
 
 variable "links" {
@@ -212,7 +212,7 @@ variable "links" {
 variable "user" {
   type        = string
   description = "The user to run as inside the container. Can be any of these formats: user, user:group, uid, uid:gid, user:gid, uid:group"
-  default     = null
+  default     = "0"
 }
 
 variable "container_depends_on" {
@@ -251,5 +251,5 @@ variable "privileged" {
 variable "system_controls" {
   type        = list(map(string))
   description = "A list of namespaced kernel parameters to set in the container, mapping to the --sysctl option to docker run. This is a list of maps: { namespace = \"\", value = \"\"}"
-  default     = null
+  default     = []
 }
